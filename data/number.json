@@ -1,0 +1,19 @@
+{
+    "data": {
+        "title": "JavaScript number",
+        "number": [
+            {
+                "url": "xyz",
+                "print": "Wrong Parameter",
+            },
+            {
+                "url": "n",
+                "print": "",
+            },
+            {
+                "url": "n",
+                "print": "",
+            }
+        ]
+    }
+}

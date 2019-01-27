@@ -1,0 +1,46 @@
+
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+    <script>
+      var xhr = new XMLHttpRequest();
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState ===4 && xhr.status === 200) {
+          document.getElementById('ajax').innerHTML = xhr.responseText;
+        }
+      }
+      xhr.open('GET', 'http://localhost:3000/getData?number=10');
+      xhr.send();
+      function sendAJAX(number) {
+        document.getElementById('ans').innerHTML = xhr.responseText;
+        var myForm = document.getElementById('myForm');
+        formData = new FormData(myForm);
+        xhr.open('GET', 'http://localhost:3000/getData?number=' + Math.floor(number));
+        xhr.send(formData);
+      }
+    </script>
+  </head>
+  <body>
+    <h1>sum</h1>
+<div class="" id="ajax">
+
+</div>
+
+    <form class="" id="myForm" action="sum.html" method="get">
+      <label for="">put some number</label>
+      <input type="text" name="number" value="">
+      <button type="button" name="submit" onclick="sendAJAX()">submit</button>
+    </form>
+    <div class="" id="ans">
+
+    </div>
+
+  </body>
+</html>
