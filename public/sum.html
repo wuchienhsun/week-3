@@ -13,46 +13,33 @@
           document.getElementById('ajax').innerHTML = xhr.responseText;
         }
       }
-      xhr.open('GET', 'http://localhost:3000/getData?number=10');
-      xhr.send();
-      // $('#ajax').load('http://localhost:3000/getData?number=10');
-
-
-      // $("#send").unbind('click').click(function(){
-      //   numberVal = $("input[name='number']").val();
-      //   $.post('http://localhost:3000/getData', {number: numberVal}, function(data) {
-      //       $('#ans').load(this);
-      //   });
-      // });
-
-
-      // function sendAJAX(){
-      //   $('#ajax').hide();
-      //   numberVal = $("input[name='number']").val();
-      //   $.get('http://localhost:3000/getData', {number: numberVal}, function(data) {
-      //       $('#ans').load();
-      //   });
-      // }
-
-
       function sendAJAX() {
-        document.getElementById('ans').innerHTML = xhr.responseText;
-        var num = document.getElementById('num').value;
+        document.getElementById('ajax').innerHTML = xhr.responseText;
+         // $('#ajax').hide();
+        var num  = document.getElementById('num').value;
         xhr.open('GET', "http://localhost:3000/getData?number=" +  num, true);
         xhr.send();
-      }
+        }
+
+      xhr.open('GET', 'http://localhost:3000/getData?number=10', true);
+      xhr.send();
+
+
+
+
 
     </script>
   </head>
   <body>
     <h1>sum</h1>
+
 <div class="" id="ajax">
 
 </div>
 
-    <form class="" id="myForm" action="getData" method="get">
+    <form id="myForm" action="getData" method="get">
       <label for="">put some number</label>
-      <input id="num" type="text" name="num" value="">
+      <input id="num" type="text" name="number" value="">
       <button type="button" name="send" onclick="sendAJAX()">submit</button>
     </form>
     <div class="" id="ans">
