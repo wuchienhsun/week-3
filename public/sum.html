@@ -5,10 +5,7 @@
   <head>
     <meta charset="utf-8">
     <title></title>
-    <script
-  src="https://code.jquery.com/jquery-3.3.1.js"
-  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-  crossorigin="anonymous"></script>
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
     <script>
       var xhr = new XMLHttpRequest();
       xhr.onreadystatechange = function () {
@@ -18,13 +15,30 @@
       }
       xhr.open('GET', 'http://localhost:3000/getData?number=10');
       xhr.send();
-      function sendAJAX(number) {
-        document.getElementById('ans').innerHTML = xhr.responseText;
-        var myForm = document.getElementById('myForm');
-        formData = new FormData(myForm);
-        xhr.open('GET', 'http://localhost:3000/getData?number=' + Math.floor(number));
-        xhr.send(formData);
+      // $('#ajax').load('http://localhost:3000/getData?number=10');
+
+
+      // $("#send").unbind('click').click(function(){
+      //   numberVal = $("input[name='number']").val();
+      //   $.post('http://localhost:3000/getData', {number: numberVal}, function(data) {
+      //       $('#ans').load(this);
+      //   });
+      // });
+
+
+      function sendAJAX(){
+        numberVal = $("input[name='number']").val();
+        $.get('http://localhost:3000/getData', {number: numberVal}, function(data) {
+            $('#ans').load(this);
+        });
       }
+
+
+      // function sendAJAX(number) {
+      //   document.getElementById('ans').innerHTML = xhr.responseText;
+      //   xhr.open('GET', "http://localhost:3000/getData?number=" + 'number');
+      //   xhr.send();
+      // }
     </script>
   </head>
   <body>
@@ -33,10 +47,10 @@
 
 </div>
 
-    <form class="" id="myForm" action="sum.html" method="get">
+    <form class="" id="myForm" action="getData" method="get">
       <label for="">put some number</label>
       <input type="text" name="number" value="">
-      <button type="button" name="submit" onclick="sendAJAX()">submit</button>
+      <button type="button" name="send" onclick="sendAJAX()">submit</button>
     </form>
     <div class="" id="ans">
 
